@@ -53,9 +53,9 @@ public class Job {
             coreCompetency.setValue("Data not available");
         }
 
-        if (getName().equals("") && employer.getValue().equals("") && location.getValue().equals("") && positionType.getValue().equals("") && coreCompetency.getValue().equals("")){
-            return "OOPS! This job does not seem to exist.";
-        }
+//        if (getName().equals("") && employer.getValue().equals("") && location.getValue().equals("") && positionType.getValue().equals("") && coreCompetency.getValue().equals("")){
+//            return "OOPS! This job does not seem to exist.";
+//        }
 
         jobListing = "\n" + "ID: " + getId()
         + "\nName: " + getName()

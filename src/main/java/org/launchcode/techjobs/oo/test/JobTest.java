@@ -50,8 +50,9 @@ public class JobTest {
     @Test
     public void  testToStringStartsAndEndsWithNewLine(){
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals(job1.toString().charAt(0), "\n"); //Why not working . . . I'm running out of hair to pull out
-        assertEquals(job1.toString().charAt(job1.toString().length()-1), "\n"); //Why not working . . .
+        String testString = (String) job1.toString();
+        assertEquals(testString.charAt(0), '\n'); //Why not working . . . I'm running out of hair to pull out
+        assertEquals(testString.charAt(testString.length()-1), '\n'); //Why not working . . .
     }
 
     @Test
@@ -73,10 +74,9 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField(){
-        Job job1 = new Job();
-        //redo to test each individually
-        assertEquals(job1.toString(), "OOPS! This job does not seem to exist.");
-//        assertEquals(job1.toString(), "\nID: " + job1.getId() + "\nName: " + "Data not available" + "\nEmployer: " + "Data not available" + "\nLocation: " + "Data not available" + "\nPosition Type: " + "Data not available" + "\nCore Competency: " + "Data not available" + "\n");
-//    }
+        Job job1 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        //assertEquals(job1.toString(), "OOPS! This job does not seem to exist.");
+        assertEquals(job1.toString(), "\nID: " + job1.getId() + "\nName: " + "Data not available" + "\nEmployer: " + "Data not available" + "\nLocation: " + "Data not available" + "\nPosition Type: " + "Data not available" + "\nCore Competency: " + "Data not available" + "\n");
+    }
 
 }
