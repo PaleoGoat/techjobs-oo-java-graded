@@ -55,7 +55,7 @@ public class JobTest {
     }
 
     @Test
-    public void testToStringContainsCorrectLabelsAndData(){ //str.contains("text")
+    public void testToStringContainsCorrectLabelsAndData(){
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         //Employer testEmployer = job1.getEmployer();
         //Location testLocation = job1.getLocation();
@@ -68,13 +68,15 @@ public class JobTest {
         //assertEquals(testCC.getValue(), "Persistence");
 
         //This doesn't work  - it's the job1.toString component which is causing the error. . . *pulls out last hair on head*
-        assertEquals(job1.toString(), "\nID:" + job1.getId() + "\nName: " + "Product tester" + "\nEmployer: " + "ACME" + "\nLocation: " + "Desert" + "\nPosition Type: " + "Quality control" + "\nCore Competency: " + "Persistence");
+        assertEquals(job1.toString(), "\nID: " + job1.getId() + "\nName: " + "Product tester" + "\nEmployer: " + "ACME" + "\nLocation: " + "Desert" + "\nPosition Type: " + "Quality control" + "\nCore Competency: " + "Persistence" + "\n");
     }
 
     @Test
     public void testToStringHandlesEmptyField(){
         Job job1 = new Job();
-        assertEquals(job1.toString(), "\nID:" + job1.getId() + "\nName: " + "Data not available" + "\nEmployer: " + "Data not available" + "\nLocation: " + "Data not available" + "\nPosition Type: " + "Data not available" + "\nCore Competency: " + "Data not available");
-    }
+        //redo to test each individually
+        assertEquals(job1.toString(), "OOPS! This job does not seem to exist.");
+//        assertEquals(job1.toString(), "\nID: " + job1.getId() + "\nName: " + "Data not available" + "\nEmployer: " + "Data not available" + "\nLocation: " + "Data not available" + "\nPosition Type: " + "Data not available" + "\nCore Competency: " + "Data not available" + "\n");
+//    }
 
 }

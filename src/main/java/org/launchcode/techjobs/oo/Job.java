@@ -30,7 +30,8 @@ public class Job {
         coreCompetency = aCoreCompetency;
     }
 
-    public String ToString() {
+    @Override
+    public String toString() {
         String jobListing;
         if (getName().equals("")) {
             setName("Data not available");

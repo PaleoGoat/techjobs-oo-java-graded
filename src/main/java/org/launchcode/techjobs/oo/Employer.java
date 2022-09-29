@@ -23,7 +23,7 @@ public class Employer {
     @Override
     public String toString() {
         return value;
-    } // Can implement this via interface ////////////////////////////////////
+    }
 
     @Override
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
