@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 
 /**
  * Created by LaunchCode
+ * Testing Gradle activation
  */
 @RunWith(JUnit4.class)
 public class JobTest {
