@@ -47,4 +47,34 @@ public class JobTest {
         assertFalse(job1.equals(job2));
     }
 
+    @Test
+    public void  testToStringStartsAndEndsWithNewLine(){
+        Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals(job1.toString().charAt(0), "\n"); //Why not working . . . I'm running out of hair to pull out
+        assertEquals(job1.toString().charAt(job1.toString().length()-1), "\n"); //Why not working . . .
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){ //str.contains("text")
+        Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        //Employer testEmployer = job1.getEmployer();
+        //Location testLocation = job1.getLocation();
+        //PositionType testPosition = job1.getPositionType();
+        //CoreCompetency testCC = job1.getCoreCompetency();
+        //These work (but they don't test the toString() methids - which is the whole point . . . !!!!!!!!!!!!!!---------!!!!!!!!!!!!!!---------!!!!!!!!!!!!!!---------!!!!!!!!!!!!!!---------!!!!!!!!!!!!!!---------!!!!!!!!!!!!!!
+        //assertEquals(testEmployer.getValue(), "ACME");
+        //assertEquals(testLocation.getValue(), "Desert");
+        //assertEquals(testPosition.getValue(), "Quality control");
+        //assertEquals(testCC.getValue(), "Persistence");
+
+        //This doesn't work  - it's the job1.toString component which is causing the error. . . *pulls out last hair on head*
+        assertEquals(job1.toString(), "\nID:" + job1.getId() + "\nName: " + "Product tester" + "\nEmployer: " + "ACME" + "\nLocation: " + "Desert" + "\nPosition Type: " + "Quality control" + "\nCore Competency: " + "Persistence");
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job job1 = new Job();
+        assertEquals(job1.toString(), "\nID:" + job1.getId() + "\nName: " + "Data not available" + "\nEmployer: " + "Data not available" + "\nLocation: " + "Data not available" + "\nPosition Type: " + "Data not available" + "\nCore Competency: " + "Data not available");
+    }
+
 }
